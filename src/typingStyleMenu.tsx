@@ -68,7 +68,7 @@ class TypingStyleMenu extends Component<TypingStyleMenuProps, TypingStyleMenuSta
 
     render(){
         return <div className="text-left">
-            <ul>
+            <ul className='space-y-4'>
                 {this.state.text.map((item,index)=>(
                     <li key={item}>
                         <ResponsiveButton text={this.state.text[index]} imgPath={""} targetRoute={""}></ResponsiveButton>
@@ -98,14 +98,12 @@ class ResponsiveButton extends Component<ResponsiveButtonProps, ResponsiveButton
             onMouseEnter={this.handleMouseEnter}
             onMouseLeave={this.handleMouseLeave}
         >
-            {this.props.text}
-            <div
-                className={`absolute top-2 left-2 h-5 bg-red-500 transition-all duration-300 ease-in-out ${
-                    this.state.isMouseOn ? 'w-full' : 'w-0'
-                }`
+           <div
+                className={`absolute top-2 left-2 h-5 bg-[#dfd7c2] transition-all duration-300 ease-in-out z-0 ${
+                    this.state.isMouseOn ? 'w-full' : 'w-0'}`
             }
-                style={{zIndex:-1}}
             ></div>
+            <div className='relative z-10 text-black'>{this.props.text}</div>
 
         </div>);
     }
